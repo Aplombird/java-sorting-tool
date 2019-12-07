@@ -11,7 +11,7 @@ import java.util.List;
  * @author Yongchao Lyu (Yongchao.Lyu@anu.edu.au)
  * @version 1.0
  */
-public class DeepCompare implements Comparator<DataHolder> {
+class DeepCompare implements Comparator<DataHolder> {
     private List<String> orderBy;
 
     DeepCompare(List<String> orderBy) {
