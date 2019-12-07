@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,7 +23,6 @@ import java.util.stream.IntStream;
 class FileHolder {
     List<DataHolder> dataList;
 
-    private static final String FILE_PATH = Paths.get("src", "diversity", "arrays").toString();
     private static final String DEFAULT_FILENAME = "input-data.csv";
     private static Logger logger = ToolLogger.getInstance();
 
@@ -38,7 +36,7 @@ class FileHolder {
 
     FileHolder(String filename) {
         this.filename = filename;
-        this.fileHandler = new File(FILE_PATH, filename);
+        this.fileHandler = new File(filename);
         this.dataList = new ArrayList<>();
 
         // Check whether the file exist
