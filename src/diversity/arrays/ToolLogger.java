@@ -3,6 +3,13 @@ package diversity.arrays;
 import java.io.IOException;
 import java.util.logging.*;
 
+/**
+ * The object of this class is used for setting a logger with specific
+ * output format that used to record log for all classes in the project.
+ *
+ * @author Yongchao Lyu (Yongchao.Lyu@anu.edu.au)
+ * @version 1.0
+ */
 class ToolLogger {
     private static Logger logger = null;
 
