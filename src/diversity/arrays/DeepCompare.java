@@ -17,9 +17,8 @@ class DeepCompare implements Comparator<DataHolder> {
     private static Logger logger = ToolLogger.getInstance();
 
     DeepCompare(List<String> orderBy) {
-        logger.info("Preparing to sort data in certain fields ...");
         this.orderBy = orderBy;
-        logger.info(String.format("The sorted field(s): %s", String.join(", ", orderBy)));
+        logger.info(String.format("The field(s) for sorting: %s", String.join(", ", orderBy)));
     }
 
     private int recursiveCompare(DataHolder o1, DataHolder o2, int index) {
