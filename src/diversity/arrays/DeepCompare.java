@@ -2,6 +2,7 @@ package diversity.arrays;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * The object of this class is used for comparing objects of DataHolder,
@@ -13,9 +14,12 @@ import java.util.List;
  */
 class DeepCompare implements Comparator<DataHolder> {
     private List<String> orderBy;
+    private static Logger logger = ToolLogger.getInstance();
 
     DeepCompare(List<String> orderBy) {
+        logger.info("Preparing to sort data in certain fields ...");
         this.orderBy = orderBy;
+        logger.info(String.format("The sorted field(s): %s", String.join(", ", orderBy)));
     }
 
     private int recursiveCompare(DataHolder o1, DataHolder o2, int index) {
