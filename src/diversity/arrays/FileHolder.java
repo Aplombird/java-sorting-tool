@@ -21,6 +21,7 @@ import java.util.stream.IntStream;
  * @version 1.0
  */
 class FileHolder {
+    List<String> heads;
     List<DataHolder> dataList;
 
     private static final String DEFAULT_FILENAME = "input-data.csv";
@@ -35,27 +36,32 @@ class FileHolder {
     }
 
     FileHolder(String filename) {
+        logger.info(String.format("Reading file \"%s\" as the source of data ...", filename));
+
         this.filename = filename;
         this.fileHandler = new File(filename);
         this.dataList = new ArrayList<>();
 
         // Check whether the file exist
         if (!fileHandler.exists()) {
-            logger.severe(String.format("Input file %s does not exist!", filename));
+            logger.severe(String.format("Input file \"%s\" does not exist!", filename));
             System.exit(0);
         }
 
         // Check whether the data read is complete
         if (!(readCsvFile() && isDataComplete())) {
-            logger.severe(String.format("Read process of %s is incomplete!", filename));
+            logger.severe(String.format("Read process of \"%s\" is incomplete!", filename));
             System.exit(0);
         }
 
         // Format the raw data to a list of DataHolder objects
         if (!formatRawData()) {
-            logger.severe(String.format("Format process of %s is incomplete!", filename));
+            logger.severe(String.format("Format process of \"%s\" is incomplete!", filename));
             System.exit(0);
         }
+
+        logger.info(String.format("The input CSV file contains %d rows and %d columns.",
+                this.dataList.size(), this.heads.size()));
     }
 
     private boolean readCsvFile() {
@@ -82,7 +88,7 @@ class FileHolder {
         // If data.size is 0, means an exception occurred when reading, or the input file is totally empty
         // If data.size is 1, means the input file only contains the row of title without any row of values
         if (this.rawData.size() < 2) {
-            logger.severe(String.format("Data read from file %s is empty!", this.filename));
+            logger.severe(String.format("Data read from file \"%s\" is empty!", this.filename));
             return false;
         }
 
@@ -105,11 +111,11 @@ class FileHolder {
 
     private boolean formatRawData() {
         try {
-            List<String> keys = elementStripper(this.rawData.get(0));
+            this.heads = elementStripper(this.rawData.get(0));
             for (int index = 1; index < this.rawData.size(); index++) {
                 List<String> values = elementStripper(this.rawData.get(index));
-                Map<String, String> data = IntStream.range(0, keys.size()).boxed()
-                        .collect(Collectors.toMap(keys::get, values::get));
+                Map<String, String> data = IntStream.range(0, this.heads.size()).boxed()
+                        .collect(Collectors.toMap(this.heads::get, values::get));
                 this.dataList.add(new DataHolder(data));
             }
             return true;
