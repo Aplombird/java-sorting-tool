@@ -28,14 +28,17 @@ public class SortingTool {
         List<String> orderBy = argsParser.arguments.get("object");
 
         // Read input csv file and process data
-        FileHolder fileHolder = new FileHolder();
+        FileHolder fileHolder = argsParser.filename == null ?
+                new FileHolder() :
+                new FileHolder(argsParser.filename);
         List<DataHolder> dataList = fileHolder.dataList;
 
         // Check whether the objects for sorting are legal
         if (argsParser.areSortedFieldsLegal(fileHolder.heads)) {
             // Sort the data basing on certain fields
             DeepCompare deepCompare = new DeepCompare(orderBy);
-            dataList.sort(deepCompare);
+            if (argsParser.reverse) dataList.sort(deepCompare.reversed());
+            else dataList.sort(deepCompare);
 
             // Output the results in the yaml format
             printTop3Result(dataList, orderBy);
