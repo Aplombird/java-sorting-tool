@@ -64,6 +64,7 @@ class FileHolder {
                 this.dataList.size(), this.heads.size()));
     }
 
+    // Read the csv file line by line, and split each line by comma
     private boolean readCsvFile() {
         try {
             FileReader fileReader = new FileReader(this.fileHandler);
@@ -83,6 +84,7 @@ class FileHolder {
         }
     }
 
+    // Check the completeness of the data
     private boolean isDataComplete() {
         // Check whether the data read from the input file has available values
         // If data.size is 0, means an exception occurred when reading, or the input file is totally empty
@@ -105,10 +107,12 @@ class FileHolder {
         return true;
     }
 
+    // Strip white characters for each string element in a list
     private List<String> elementStripper(List<String> originalList) {
         return originalList.stream().map(String::strip).collect(Collectors.toList());
     }
 
+    // Convert raw data into a certain format, i.e. a list of DataHolder objects
     private boolean formatRawData() {
         try {
             this.heads = elementStripper(this.rawData.get(0));

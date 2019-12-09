@@ -57,16 +57,18 @@ class ArgsParser {
                 this.reverse = true;
 
         } else {
-            // All arguments are the fields for sorting
+            // All arguments are used as fields for sorting
             this.arguments.put("object", Arrays.asList(args));
         }
 
+        // Quit if there's no fields given for sorting
         if (this.arguments.get("object").size() == 0) {
             logger.severe("No arguments are given for sorting!");
             System.exit(0);
         }
     }
 
+    // Check if all fields for sorting exist in the source csv file too
     boolean areSortedFieldsLegal(List<String> legalHeads) {
         for (String obj: this.arguments.get("object")) {
             if (!legalHeads.contains(obj)) {
@@ -77,6 +79,7 @@ class ArgsParser {
         return true;
     }
 
+    // Check whether multiple types of argument are used
     private boolean isMultipleArgumentMode(String[] args) {
         for (String argument: args)
             if (argument.startsWith("-"))
@@ -84,6 +87,7 @@ class ArgsParser {
         return false;
     }
 
+    // Categorise arguments to specific argument types
     private void parseArguments(String[] args) {
         String argType = "unknown";
         List<String> arguments = new ArrayList<>();
@@ -99,6 +103,7 @@ class ArgsParser {
         this.arguments.put(argType, arguments);
     }
 
+    // Convert indicators to argument types
     private String getArgumentType(String argIndicator) {
         switch (argIndicator) {
             case "-h":
@@ -114,6 +119,7 @@ class ArgsParser {
         }
     }
 
+    // Print the instruction of this tool
     private void printHelpInfo() {
         System.out.println(
                 "\n" +

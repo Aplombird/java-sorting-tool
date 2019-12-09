@@ -21,6 +21,7 @@ class DeepCompare implements Comparator<DataHolder> {
         logger.info(String.format("The field(s) for sorting: %s", String.join(", ", orderBy)));
     }
 
+    // Core sorting algorithm, recursive comparing for DataHolder objects
     private int recursiveCompare(DataHolder o1, DataHolder o2, int index) {
         if (index < orderBy.size()) {
             String field = orderBy.get(index);

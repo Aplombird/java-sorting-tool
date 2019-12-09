@@ -46,6 +46,7 @@ public class SortingTool {
         }
     }
 
+    // Output printer, which print the result in a yaml format
     private static void printTop3Result(List<DataHolder> dataList, List<String> orderBy) {
         System.out.println("\noutput:");
         for (int index = 0; index < Math.min(3, dataList.size()); index++) {
