@@ -1,5 +1,5 @@
 JC = javac -g
-JR = jar -c -f SortingTool.jar -e diversity.arrays.SortingTool
+JR = jar -c -f ../sorting-tool.jar -e diversity.arrays.SortingTool
 SRC = diversity/arrays/
 
 ifeq ($(OS),Windows_NT)
