@@ -99,7 +99,7 @@ class FileHolder {
         for (int index = 1; index < this.rawData.size(); index++) {
             List<String> line_values = this.rawData.get(index);
             if (keys.size() != line_values.size()) {
-                logger.severe(String.format("The number of values given in line %d is incorrect", index + 1));
+                logger.severe(String.format("The number of values given in line %d is incorrect!", index + 1));
                 return false;
             }
         }

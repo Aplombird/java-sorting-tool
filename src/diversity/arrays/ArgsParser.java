@@ -22,7 +22,7 @@ class ArgsParser {
         // Quit if no arguments are given
         if (args.length == 0) {
             logger.severe("No arguments are given!");
-            logger.info("Use command \"java -jar SortingTool.jar -h\" for instruction.");
+            logger.info("Use command \"java -jar sorting-tool.jar -h\" for instruction.");
             System.exit(0);
         }
 
@@ -34,6 +34,12 @@ class ArgsParser {
             if (this.arguments.get("unknown").size() > 0) {
                 logger.severe(String.format("Unknown argument type for: %s",
                         String.join(", ", this.arguments.get("unknown"))));
+                System.exit(0);
+            }
+
+            // Quit if '-o' indicator is not attended
+            if (!this.arguments.containsKey("object")) {
+                logger.severe("Indicator -o is mandatory when using other indicators.");
                 System.exit(0);
             }
 
@@ -62,7 +68,8 @@ class ArgsParser {
         }
 
         // Quit if there's no fields given for sorting
-        if (this.arguments.get("object").size() == 0) {
+        if (this.arguments.containsKey("object") &&
+                this.arguments.get("object").size() == 0) {
             logger.severe("No arguments are given for sorting!");
             System.exit(0);
         }
@@ -123,7 +130,7 @@ class ArgsParser {
     private void printHelpInfo() {
         System.out.println(
                 "\n" +
-                "Usage:  java -jar SortingTool.jar -o arg1 arg2 ... [-f filename] [-r] [-h]\n" +
+                "Usage:  java -jar sorting-tool.jar -o arg1 arg2 ... [-f filename] [-r] [-h]\n" +
                 "\n" +
                 "-o arg1 arg2 ... represent the fields used for sorting, separated by whitespace\n" +
                 "-f filename      to indicate specific file as the input file\n" +
@@ -133,8 +140,8 @@ class ArgsParser {
                 "Note: -o is a mandatory when using -f or -r at the same time.\n" +
                 " i.e. -o can be omitted only if -f and -r are unused too.\n" +
                 "\n" +
-                "Example: java -jar SortingTool.jar -o ENTRY_NO EH_cm -f input-data.csv -r\n" +
-                "         java -jar SortingTool.jar ENTRY_NO EH_cm\n"
+                "Example: java -jar sorting-tool.jar -o ENTRY_NO EH_cm -f input-data.csv -r\n" +
+                "         java -jar sorting-tool.jar ENTRY_NO EH_cm\n"
         );
     }
 }
