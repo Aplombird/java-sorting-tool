@@ -128,7 +128,7 @@ class ArgsParser {
                 " i.e. -o can be omitted only if -f and -r are unused too.\n" +
                 "\n" +
                 "Example: java -jar SortingTool.jar -o ENTRY_NO EH_cm -f input-data.csv -r\n" +
-                "         java -jar SortingTool.jar ENTRY_NO EH_cm"
+                "         java -jar SortingTool.jar ENTRY_NO EH_cm\n"
         );
     }
 }

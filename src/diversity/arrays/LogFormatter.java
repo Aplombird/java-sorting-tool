@@ -16,8 +16,8 @@ class LogFormatter extends Formatter {
     public String format(LogRecord record) {
         return new Date(record.getMillis()) + "::"
                 + record.getLevel() + "::"
-                + record.getSourceClassName() + "::"
-                + record.getSourceMethodName() + "::"
+//                + record.getSourceClassName() + "::"
+//                + record.getSourceMethodName() + "::"
                 + record.getMessage() + "\n";
     }
 }
