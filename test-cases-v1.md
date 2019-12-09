@@ -142,7 +142,7 @@
       
     Sun Dec 08 21:30:03 AEDT 2019::INFO::diversity.arrays.SortingTool::main::**All tasks are done.**  
     
-  - **Case 6: The number of commas of one data line is different with the heads line**  
+  - **Case 7: The number of commas of one data line is different with the heads line**  
     *Input*:   
     $ java -jar SortingTool.jar ENTRY_NO  
       
@@ -170,14 +170,14 @@
       
     output:  
     \- row: 2  
-      column: 2  
-      data: ENTRY_NO=46  
+      &nbsp;&nbsp;column: 2  
+      &nbsp;&nbsp;data: ENTRY_NO=46  
     \- row: 8  
-      column: 9  
-      data: ENTRY_NO=46  
+      &nbsp;&nbsp;column: 9  
+      &nbsp;&nbsp;data: ENTRY_NO=46  
     \- row: 4  
-      column: 2  
-      data: ENTRY_NO=45  
+      &nbsp;&nbsp;column: 2  
+      &nbsp;&nbsp;data: ENTRY_NO=45  
       
     Mon Dec 09 09:32:29 AEDT 2019::INFO::diversity.arrays.SortingTool::main::All tasks are done.  
     
@@ -300,4 +300,52 @@
       &nbsp;&nbsp;data: ENTRY_NO=45 DESIGNATION=Asgrow CEBU  
       
     Mon Dec 09 09:44:48 AEDT 2019::INFO::diversity.arrays.SortingTool::main::All tasks are done.    
+    
+  - **Case 7: Three arguments**  
+    *Input*:   
+    $ java -jar SortingTool.jar DESIGNATION ENTRY_NO EH_cm        
+                  
+    *Output*:    
+    Mon Dec 09 21:06:14 AEDT 2019::INFO::diversity.arrays.SortingTool::main::Welcome to use this sorting tool.  
+    Mon Dec 09 21:06:14 AEDT 2019::INFO::diversity.arrays.ArgsParser::\<init>::Parsing inputted command-line arguments ...  
+    Mon Dec 09 21:06:14 AEDT 2019::INFO::diversity.arrays.FileHolder::\<init>::Reading file "input-data.csv" as the source of data ...  
+    Mon Dec 09 21:06:14 AEDT 2019::INFO::diversity.arrays.FileHolder::\<init>::The input CSV file contains 92 rows and 18 columns.  
+    Mon Dec 09 21:06:14 AEDT 2019::INFO::diversity.arrays.DeepCompare::\<init>::The field(s) for sorting: DESIGNATION, ENTRY_NO, EH_cm  
+      
+    output:  
+    \- row: 8  
+      &nbsp;&nbsp;column: 4  
+      &nbsp;&nbsp;data: DESIGNATION=ARZM 07 068 ENTRY_NO=1 EH_cm=123  
+    \- row: 3  
+      &nbsp;&nbsp;column: 1  
+      &nbsp;&nbsp;data: DESIGNATION=ARZM 07 068 ENTRY_NO=1 EH_cm=93  
+    \- row: 8  
+      &nbsp;&nbsp;column: 10  
+      &nbsp;&nbsp;data: DESIGNATION=ARZM 13 111 ENTRY_NO=2 EH_cm=145  
+      
+    Mon Dec 09 21:06:14 AEDT 2019::INFO::diversity.arrays.SortingTool::main::All tasks are done.  
+    
+  - **Case 8: Four arguments**  
+    *Input*:   
+    $ java -jar SortingTool.jar ENTRY_TYPE DESIGNATION ENTRY_NO PH_cm EH_cm       
+                     
+    *Output*:    
+    Mon Dec 09 21:11:17 AEDT 2019::INFO::diversity.arrays.SortingTool::main::Welcome to use this sorting tool.  
+    Mon Dec 09 21:11:17 AEDT 2019::INFO::diversity.arrays.ArgsParser::\<init>::Parsing inputted command-line arguments ...  
+    Mon Dec 09 21:11:17 AEDT 2019::INFO::diversity.arrays.FileHolder::\<init>::Reading file "input-data.csv" as the source of data ...  
+    Mon Dec 09 21:11:17 AEDT 2019::INFO::diversity.arrays.FileHolder::\<init>::The input CSV file contains 92 rows and 18 columns.  
+    Mon Dec 09 21:11:17 AEDT 2019::INFO::diversity.arrays.DeepCompare::\<init>::The field(s) for sorting: ENTRY_TYPE, DESIGNATION, ENTRY_NO, PH_cm, EH_cm  
+      
+    output:  
+    \- row: 6  
+      &nbsp;&nbsp;column: 3  
+      &nbsp;&nbsp;data: ENTRY_TYPE=C DESIGNATION=Asgrow CEBU ENTRY_NO=45 PH_cm=189 EH_cm=128  
+    \- row: 4  
+      &nbsp;&nbsp;column: 2  
+      &nbsp;&nbsp;data: ENTRY_TYPE=C DESIGNATION=Asgrow CEBU ENTRY_NO=45 PH_cm=189 EH_cm=121  
+    \- row: 6  
+      &nbsp;&nbsp;column: 6  
+      &nbsp;&nbsp;data: ENTRY_TYPE=C DESIGNATION=Asgrow CEBU ENTRY_NO=42 PH_cm=183 EH_cm=122  
+      
+    Mon Dec 09 21:11:17 AEDT 2019::INFO::diversity.arrays.SortingTool::main::All tasks are done.  
     
