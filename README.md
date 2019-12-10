@@ -1,6 +1,6 @@
 # Java Sorting Tool
 
-This is a kind of command-line sorting tool for the data read from an arbitrary CSV file that has two mandatory fields named “row” and “column”. The tool sorts data according to the field names inputted from the command-line. For the numerical data, it sorts the value from the highest to the lowest. For anything else, it sorts the value in alphabetical order. The output of this tool is the top 3 results, and the format of the output is in the YAML style.
+This is a kind of command-line sorting tool for the data read from an arbitrary CSV file that has two mandatory fields named “row” and “column”. The tool sorts data according to the field names inputted from the command-line. For the numerical data, it sorts the value from the highest to the lowest. For anything else, it sorts the value in alphabetical order. The output of this tool is the top 3 results in the YAML format. This tool supports multiple fields sorting, which means sorting process begins from the first field, and use the next field to break the tie. The number of fields can be arbitrary.
 
 ## Quick Start
 
@@ -19,7 +19,7 @@ This is a kind of command-line sorting tool for the data read from an arbitrary 
   $ java -jar sorting-tool.jar ENTRY_NO PH_cm EH_cm  
 ~~~
 
-- **The tool direct output the results as you want**
+- **The tool direct outputs the results as you want**
 ~~~
   Tue Dec 10 22:27:42 AEDT 2019::INFO::Welcome to use this sorting tool.
   Tue Dec 10 22:27:42 AEDT 2019::INFO::Parsing inputted command-line arguments ...
@@ -41,7 +41,7 @@ This is a kind of command-line sorting tool for the data read from an arbitrary 
   Tue Dec 10 22:27:42 AEDT 2019::INFO::All tasks are done.
 ~~~
 
-## Pay Attention
+## Something you need to know
 
 - **The input csv-file must be placed in the same folder as the sorting-tool.jar**
 
@@ -50,7 +50,9 @@ This is a kind of command-line sorting tool for the data read from an arbitrary 
   $ java -jar sorting-tool.jar "GW_g__ FieldWB"
 ~~~
 
-- **When utilising indicator -f or -r, then the indicator -o is mandatory**
+- **When utilising the indicator -h for help, all other arguments will be ignored**
+
+- **When utilising indicator -f or -r, then the indicator -o become mandatory**
 ~~~
   $ java -jar sorting-tool.jar -f input-data-ex.csv -o Moi_pct__STD
 ~~~
@@ -80,7 +82,7 @@ This is a kind of command-line sorting tool for the data read from an arbitrary 
 ~~~
   $ java -jar sorting-tool.jar -r -o ENTRY_NO -f input-data-ex.csv 
 ~~~
-&emsp;&emsp;**The above two usages are equivalent**
+&emsp;&emsp;**Above two usages are equivalent**
 
 ## Project Structure
 
@@ -100,7 +102,8 @@ This is a kind of command-line sorting tool for the data read from an arbitrary 
   |- sorting-tool.jar           # archive version of this tool to release
   |- README.md                  # current file
   |- test-cases-v1.md           # test cases for the first round
-  `- text-cases-v2.md           # test cases for the second round
+  |- text-cases-v2.md           # test cases for the second round
+  `- logger.log                 # auto generated log file
 ~~~
 
 ## How To Build  
