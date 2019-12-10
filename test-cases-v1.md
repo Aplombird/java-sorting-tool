@@ -1,4 +1,4 @@
-# Integration Test
+# Integration Test v1
 
 ## Arguments Parsing
 
@@ -13,7 +13,7 @@
    
  - **Case 2: One of arguments is not a head in the csv file**  
    *Input*:   
-   $ java -jar SortingTool.jar TryMe
+   $ java -jar SortingTool.jar TryMe  
   
    *Output*:  
    Sun Dec 08 20:51:02 AEDT 2019::INFO::diversity.arrays.SortingTool::main::Welcome to use this sorting tool.  
