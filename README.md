@@ -50,7 +50,7 @@ This is a kind of command-line sorting tool for the data read from an arbitrary 
   $ java -jar sorting-tool.jar "GW_g__ FieldWB"
 ~~~
 
-- **When utilise indicator -f or -r, then the indicator -o is mandatory**
+- **When utilising indicator -f or -r, then the indicator -o is mandatory**
 ~~~
   $ java -jar sorting-tool.jar -f input-data-ex.csv -o Moi_pct__STD
 ~~~
@@ -80,7 +80,7 @@ This is a kind of command-line sorting tool for the data read from an arbitrary 
 ~~~
   $ java -jar sorting-tool.jar -r -o ENTRY_NO -f input-data-ex.csv 
 ~~~
-&emsp;&emsp;**Above two usages are equivalent**
+&emsp;&emsp;**The above two usages are equivalent**
 
 ## Project Structure
 
