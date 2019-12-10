@@ -22,6 +22,7 @@ public class SortingTool {
 
     public static void main(String[] args) {
         logger.info("Welcome to use this sorting tool.");
+        logger.info("Author's contact: yongchao.lyu@anu.edu.au");
 
         // Read arguments from the command line
         ArgsParser argsParser = new ArgsParser(args);

@@ -30,6 +30,12 @@ class ArgsParser {
             // Parsing and categorising arguments
             parseArguments(args);
 
+            // Print help info if necessary, and then exit
+            if (this.arguments.containsKey("help")) {
+                printHelpInfo();
+                System.exit(0);
+            }
+
             // Quit if there is any argument cannot be categorised
             if (this.arguments.get("unknown").size() > 0) {
                 logger.severe(String.format("Unknown argument type for: %s",
@@ -50,12 +56,6 @@ class ArgsParser {
                     System.exit(0);
                 }
                 this.filename = this.arguments.get("filename").get(0);
-            }
-
-            // Print help info if necessary, and then exit
-            if (this.arguments.containsKey("help")) {
-                printHelpInfo();
-                System.exit(0);
             }
 
             // Set reverse to true if require for a reverse sorting
@@ -140,7 +140,7 @@ class ArgsParser {
                 "Note: -o is a mandatory when using -f or -r at the same time.\n" +
                 " i.e. -o can be omitted only if -f and -r are unused too.\n" +
                 "\n" +
-                "Example: java -jar sorting-tool.jar -o ENTRY_NO EH_cm -f input-data.csv -r\n" +
+                "Example: java -jar sorting-tool.jar -o ENTRY_NO EH_cm -f input-data.csv\n" +
                 "         java -jar sorting-tool.jar ENTRY_NO EH_cm\n"
         );
     }
